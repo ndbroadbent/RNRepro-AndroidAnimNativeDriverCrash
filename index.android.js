@@ -16,7 +16,7 @@ import {
 
 const scaleValue = new Animated.Value(1)
 const rotateValue = new Animated.Value(0)
-const rotateValuesDegrees = rotateValue.interpolate({
+const rotateValueDegrees = rotateValue.interpolate({
   inputRange: [0, 1],
   outputRange: ['0deg', '360deg'],
 })
@@ -46,6 +46,21 @@ export default class NativeAnimTest extends Component {
     //     useNativeDriver: true,
     //   }),
     // ]).start()
+
+
+    // Also works:
+
+    // Animated.timing(rotateValue, {
+    //   toValue: 0,
+    //   duration: 0,
+    //   useNativeDriver: true,
+    // }).start()
+
+    // Animated.timing(scaleValue, {
+    //   toValue: 1.3,
+    //   duration: 5000,
+    //   useNativeDriver: true,
+    // }).start()
   }
 
   render() {
@@ -79,7 +94,7 @@ const styles = StyleSheet.create({
     margin: 10,
     transform: [
       { scale: scaleValue },
-      { rotate: rotateValuesDegrees },
+      { rotate: rotateValueDegrees },
     ],
   },
   instructions: {
